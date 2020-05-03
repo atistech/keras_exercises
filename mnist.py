@@ -32,8 +32,8 @@ network.fit(train_images, train_labels, epochs=5, batch_size=128)
 #evaluating network
 test_loss, test_acc = network.evaluate(test_images, test_labels)
 
-#print test accurate as float value
+#print test accuracy as float value
 print("test_acc:", test_acc)
 
-#print test accurate as percentage value
-print("Test Accurate {:.0%}".format(test_acc))
+#print test accuracy as percentage value
+print("Test Accuracy: {:.0%}".format(test_acc))
