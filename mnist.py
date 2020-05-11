@@ -7,12 +7,12 @@ from keras.utils import to_categorical
 (train_images, train_labels), (test_images, test_labels) = mnist.load_data()
 
 #network architecture
-network = models.Sequential()
-network.add(layers.Dense(512, activation='relu', input_shape=(28 * 28,)))
-network.add(layers.Dense(10, activation='softmax'))
+model = models.Sequential()
+model.add(layers.Dense(512, activation='relu', input_shape=(28 * 28,)))
+model.add(layers.Dense(10, activation='softmax'))
 
 #compile step
-network.compile(optimizer='rmsprop',
+model.compile(optimizer='rmsprop',
                 loss='categorical_crossentropy',
                 metrics=['accuracy'])
 
@@ -27,10 +27,10 @@ train_labels = to_categorical(train_labels)
 test_labels = to_categorical(test_labels)
 
 #training network
-network.fit(train_images, train_labels, epochs=5, batch_size=128)
+model.fit(train_images, train_labels, epochs=5, batch_size=128)
 
 #evaluating network
-test_loss, test_acc = network.evaluate(test_images, test_labels)
+test_loss, test_acc = model.evaluate(test_images, test_labels)
 
 #print test accuracy as float value
 print("test_acc:", test_acc)
